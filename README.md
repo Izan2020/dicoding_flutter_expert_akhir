@@ -1,6 +1,6 @@
 # Dicoding Flutter Expert
 
-![267107752-24c90d5f-8b5e-49ba-a23e-db96fa7f7bfd](https://github.com/Izan2020/dicoding_flutter_expert/assets/59131023/321e7066-fe10-46e3-be06-3be8697e5bc9)
+![wow](https://github.com/Izan2020/dicoding_flutter_expert_akhir/assets/59131023/4fb26c5d-71fb-4114-b475-4f03c963e0f4)
 
 
 Repository ini merupakan starter project submission kelas Flutter Expert Dicoding Indonesia.
