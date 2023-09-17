@@ -29,6 +29,7 @@ dependencies:
   bloc: ^8.1.2
   mockito: ^5.4.2
   build_runner: ^2.4.6
+  bloc_test: ^9.1.4
   
   
 

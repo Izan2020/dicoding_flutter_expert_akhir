@@ -21,14 +21,11 @@ import 'package:movies/presentation/interface/screens/popular_movies_screen.dart
 import 'package:movies/presentation/interface/screens/top_rated_movies_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:ditonton/injection.dart' as di;
-import 'package:ditonton/presentation/provider/home_notifier.dart';
-import 'package:ditonton/presentation/provider/watchlist_movie_notifier.dart';
 import 'package:search/presentation/bloc/search_movies/search_movies_bloc.dart';
 import 'package:search/presentation/bloc/search_series/search_series_bloc.dart';
 import 'package:search/presentation/interface/search_movie_screen.dart';
 import 'package:search/presentation/interface/search_series_screen.dart';
-import 'package:tvseries/necessary_notifiers.dart';
-import 'package:movies/necessary_notifiers.dart';
+
 import 'package:tvseries/presentation/bloc/series_detail/series_detail_bloc.dart';
 import 'package:tvseries/presentation/bloc/series_detail/series_recommendation/series_recommendation_bloc.dart';
 import 'package:tvseries/presentation/bloc/series_detail/series_watchlist_status/series_watchlist_status_bloc.dart';
@@ -54,39 +51,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => di.locator<SeriesListNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieListNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieDetailNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TopRatedMoviesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<PopularMoviesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<WatchlistNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<HomeNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<PopularSeriesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TopRatedSeriesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<SeriesDetailNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<NowPlayingSeriesNotifier>(),
-        ),
         BlocProvider(
           create: (_) => di.locator<SearchSeriesBloc>(),
         ),

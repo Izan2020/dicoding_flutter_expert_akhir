@@ -9,7 +9,6 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
 
 import 'package:tvseries/necessary_home.dart';
 import 'package:movies/necessary_home.dart';
@@ -21,21 +20,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Future.microtask(
-        () => Provider.of<MovieListNotifier>(context, listen: false)
-          ..fetchNowPlayingMovies()
-          ..fetchPopularMovies()
-          ..fetchTopRatedMovies());
-    Future.microtask(
-        () => Provider.of<SeriesListNotifier>(context, listen: false)
-          ..fetchPlayingSeries()
-          ..fetchPopularSeries()
-          ..fetchTopRatedSeries());
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

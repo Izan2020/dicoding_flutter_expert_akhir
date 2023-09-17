@@ -12,8 +12,8 @@ import 'package:movies/data/models/movie_model.dart';
 import 'package:movies/data/repositories/movie_repository_impl.dart';
 import 'package:movies/domain/entities/movie.dart';
 
-import '../../../../test/helpers/test_helper.mocks.dart';
 import '../../dummy_data/dummy_objects.dart';
+import '../helper/test_helper.mocks.dart';
 
 void main() {
   late MovieRepositoryImpl repository;

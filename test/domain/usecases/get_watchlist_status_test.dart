@@ -4,7 +4,7 @@ import 'package:mockito/mockito.dart';
 import 'package:movies/domain/repositories/movie_repository.dart';
 import 'package:movies/domain/usecases/get_watchlist_status.dart';
 
-import '../../helpers/test_helper.mocks.dart';
+import 'get_watchlist_movies_test.mocks.dart';
 
 @GenerateMocks([MovieRepository])
 void main() {
