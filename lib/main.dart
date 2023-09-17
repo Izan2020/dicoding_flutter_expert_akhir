@@ -19,7 +19,7 @@ import 'package:movies/presentation/bloc/movie_top_rated/movie_top_rated_bloc.da
 import 'package:movies/presentation/interface/screens/movie_detail_screen.dart';
 import 'package:movies/presentation/interface/screens/popular_movies_screen.dart';
 import 'package:movies/presentation/interface/screens/top_rated_movies_screen.dart';
-import 'package:provider/provider.dart';
+
 import 'package:ditonton/injection.dart' as di;
 import 'package:search/presentation/bloc/search_movies/search_movies_bloc.dart';
 import 'package:search/presentation/bloc/search_series/search_series_bloc.dart';

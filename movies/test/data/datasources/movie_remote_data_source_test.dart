@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:core/utils/exception.dart';
-import 'package:core/utils/ssl_pinning.dart';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/mockito.dart';
@@ -10,16 +10,17 @@ import 'package:movies/data/models/movie_detail_model.dart';
 import 'package:movies/data/models/movie_response.dart';
 
 import '../../presentation/json_reader.dart';
+import '../helper/test_helper.mocks.dart';
 
 void main() {
   const apiKey = 'api_key=2174d146bb9c0eab47529b2e77d6b526';
   const baseUrl = 'https://api.themoviedb.org/3';
 
   late MovieRemoteDataSourceImpl dataSource;
-  late SSLCertifiedClient mockHttpClient;
+  late MockSSLCertifiedClient mockHttpClient;
 
   setUp(() {
-    mockHttpClient = SSLCertifiedClient();
+    mockHttpClient = MockSSLCertifiedClient();
     dataSource = MovieRemoteDataSourceImpl(client: mockHttpClient);
   });
 
