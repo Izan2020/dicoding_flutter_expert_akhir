@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "792248497147",
+    "project_id": "dicodinge-expert",
+    "storage_bucket": "dicodinge-expert.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792248497147:android:7999a4ade14093fe63115e",
+        "android_client_info": {
+          "package_name": "com.dicoding.ditonton"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7W9luqRkyUJ645b_ALztLBaz-L30a8o4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
