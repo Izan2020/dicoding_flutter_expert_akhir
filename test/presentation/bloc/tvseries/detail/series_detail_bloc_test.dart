@@ -9,7 +9,7 @@ import 'package:tvseries/presentation/bloc/series_detail/series_detail_bloc.dart
 import 'package:tvseries/presentation/bloc/series_detail/series_detail_event.dart';
 import 'package:tvseries/presentation/bloc/series_detail/series_detail_state.dart';
 
-import '../../../../dummy_data/dummy_objects.dart';
+import '../../../../../tvseries/test/dummy_data/dummy_objects.dart';
 import '../../../provider/tvseries/series_detail_notifier_test.mocks.dart';
 
 @GenerateMocks([GetSeriesDetail])

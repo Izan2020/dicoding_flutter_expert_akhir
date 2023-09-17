@@ -9,7 +9,7 @@ import 'package:tvseries/presentation/bloc/series_detail/series_watchlist_status
 import 'package:tvseries/presentation/bloc/series_detail/series_watchlist_status/series_watchlist_status_bloc.dart';
 import 'package:tvseries/presentation/bloc/series_detail/series_watchlist_status/series_watchlist_status_event.dart';
 
-import '../../../../dummy_data/dummy_objects.dart';
+import '../../../../../tvseries/test/dummy_data/dummy_objects.dart';
 import 'series_watchlist_status_test.mocks.dart';
 
 @GenerateMocks([

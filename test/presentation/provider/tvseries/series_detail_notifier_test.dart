@@ -13,7 +13,7 @@ import 'package:tvseries/domain/usecases/remove_watchlist.dart';
 import 'package:tvseries/domain/usecases/save_watchlist.dart';
 import 'package:tvseries/presentation/provider/series_detail_notifier.dart';
 
-import '../../../dummy_data/dummy_objects.dart';
+import '../../../../tvseries/test/dummy_data/dummy_objects.dart';
 import 'series_detail_notifier_test.mocks.dart';
 
 @GenerateMocks([
