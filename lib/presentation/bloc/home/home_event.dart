@@ -5,6 +5,6 @@ class HomeEvent {
 }
 
 class OnSwitchHomeEvent extends HomeEvent {
-  final HomeState homeState;
+  final HomeStateValue homeState;
   OnSwitchHomeEvent(this.homeState);
 }

@@ -37,7 +37,7 @@ class _SeriesDetaiScreenState extends State<SeriesDetailScreen> {
         .add(OnFetchSeriesRecommendation(widget.id));
     context
         .read<SeriesWatchlistStatusBloc>()
-        .add(OnLoadWatchlistStatus(widget.id, 'Baru Masuks'));
+        .add(OnLoadWatchlistStatus(widget.id));
   }
 
   @override

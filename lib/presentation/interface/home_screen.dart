@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () {
                 context
                     .read<HomeBloc>()
-                    .add(OnSwitchHomeEvent(HomeState.Movies));
+                    .add(OnSwitchHomeEvent(HomeStateValue.Movies));
                 Navigator.pop(context);
               },
             ),
@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () {
                 context
                     .read<HomeBloc>()
-                    .add(OnSwitchHomeEvent(HomeState.TvSeries));
+                    .add(OnSwitchHomeEvent(HomeStateValue.TvSeries));
                 Navigator.pop(context);
               },
             ),
@@ -80,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
-            return Text('Ditonton ${state.name}');
+            return Text('Ditonton ${state.homeStateValue.name}');
           },
         ),
         actions: [
@@ -88,14 +88,14 @@ class _HomeScreenState extends State<HomeScreen> {
             builder: (context, state) {
               return IconButton(
                 onPressed: () {
-                  switch (state) {
-                    case HomeState.Movies:
+                  switch (state.homeStateValue) {
+                    case HomeStateValue.Movies:
                       Navigator.pushNamed(
                         context,
                         SearchMovieScreen.ROUTE_NAME,
                       );
                       break;
-                    case HomeState.TvSeries:
+                    case HomeStateValue.TvSeries:
                       Navigator.pushNamed(
                         context,
                         SearchSeriesScreen.ROUTE_NAME,
@@ -114,13 +114,13 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SingleChildScrollView(
           child: BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
-              switch (state) {
-                case HomeState.Movies:
+              switch (state.homeStateValue) {
+                case HomeStateValue.Movies:
                   return MoviePage(
                     key:
                         Key('iL0v3DiCoDiNg!!!!(m0vi3PaG3)!!!!aKuInGiNbInTanG5'),
                   );
-                case HomeState.TvSeries:
+                case HomeStateValue.TvSeries:
                   return TvSeriesPage(
                     key:
                         Key('iL0v3DiCoDiNg!!!!(s3r1e5P4g3)!!!!pL1sB1nt4ngLima'),

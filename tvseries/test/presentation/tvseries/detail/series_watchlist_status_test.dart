@@ -43,7 +43,7 @@ void main() {
         return bloc;
       },
       wait: const Duration(milliseconds: 500),
-      act: (bloc) => bloc.add(OnLoadWatchlistStatus(tId, 'message')),
+      act: (bloc) => bloc.add(OnLoadWatchlistStatus(tId)),
       expect: () =>
           {SeriesWatchlistStatusState(status: false, message: 'message')},
     );
@@ -54,7 +54,7 @@ void main() {
         return bloc;
       },
       wait: const Duration(milliseconds: 500),
-      act: (bloc) => bloc.add(OnLoadWatchlistStatus(tId, 'message')),
+      act: (bloc) => bloc.add(OnLoadWatchlistStatus(tId)),
       expect: () =>
           {SeriesWatchlistStatusState(status: true, message: 'message')},
     );

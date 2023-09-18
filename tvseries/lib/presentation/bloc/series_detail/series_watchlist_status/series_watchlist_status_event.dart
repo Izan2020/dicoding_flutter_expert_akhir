@@ -6,8 +6,8 @@ abstract class SeriesWatchlistStatusEvent {
 
 class OnLoadWatchlistStatus extends SeriesWatchlistStatusEvent {
   final int id;
-  final String message;
-  const OnLoadWatchlistStatus(this.id, this.message);
+
+  const OnLoadWatchlistStatus(this.id);
 }
 
 class OnNotifierTest extends SeriesWatchlistStatusEvent {

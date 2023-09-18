@@ -21,8 +21,7 @@ class SeriesWatchlistStatusBloc
     on<OnLoadWatchlistStatus>(
       (event, emit) async {
         final result = await getWatchlistStatusSeries.execute(event.id);
-        emit(
-            SeriesWatchlistStatusState(status: result, message: event.message));
+        emit(SeriesWatchlistStatusState(status: result));
       },
     );
 
