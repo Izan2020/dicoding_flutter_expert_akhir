@@ -8,6 +8,6 @@ class SaveWatchlistSeries {
   SaveWatchlistSeries(this.seriesRepository);
 
   Future<Either<Failure, String>> execute(SeriesDetail tv) {
-    return seriesRepository.saveWatchlist(tv);
+    return seriesRepository.saveWatchlistSeries(tv);
   }
 }

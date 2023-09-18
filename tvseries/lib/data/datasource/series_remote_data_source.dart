@@ -8,7 +8,7 @@ import 'package:tvseries/data/models/series_model.dart';
 import 'package:tvseries/data/models/series_response.dart';
 
 abstract class SeriesRemoteDataSource {
-  Future<List<SeriesModel>> getAiringTodayTvs();
+  Future<List<SeriesModel>> getNowPlayingTvs();
   Future<List<SeriesModel>> getPopularTvs();
   Future<List<SeriesModel>> getTopRatedTvs();
   Future<SeriesDetailResponse> getTvDetail(int id);
@@ -23,7 +23,7 @@ class SeriesRemoteDataSourceImpl extends SeriesRemoteDataSource {
   SeriesRemoteDataSourceImpl({required this.client});
 
   @override
-  Future<List<SeriesModel>> getAiringTodayTvs() async {
+  Future<List<SeriesModel>> getNowPlayingTvs() async {
     final response =
         await client.get(Uri.parse('$BASE_URL/tv/airing_today?$API_KEY'));
     if (response.statusCode == 200) {

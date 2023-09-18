@@ -20,7 +20,7 @@ void main() {
 
   test('should get list of now playing series', () async {
     // arrange
-    when(mockSeriesRepository.getTvPlayingNow())
+    when(mockSeriesRepository.getNowPlayingSeries())
         .thenAnswer((_) async => Right(tSeries));
 
     // execute

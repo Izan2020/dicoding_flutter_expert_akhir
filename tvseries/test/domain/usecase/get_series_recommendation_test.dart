@@ -20,7 +20,7 @@ void main() {
   final tSeries = <Series>[];
 
   test('should get list of series recommendation', () async {
-    when(mockSeriesRepository.getTvRecommendations(tId))
+    when(mockSeriesRepository.getSeriesRecommendations(tId))
         .thenAnswer((_) async => Right(tSeries));
 
     final result = await usecase.execute(tId);

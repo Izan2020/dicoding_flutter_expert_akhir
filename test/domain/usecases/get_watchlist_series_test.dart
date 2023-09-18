@@ -19,7 +19,7 @@ void main() {
   final tSeries = <Series>[];
 
   test('should get list of series watchlist from repository', () async {
-    when(mockSeriesRepository.getWatchlistTvs())
+    when(mockSeriesRepository.getWatchlistSeries())
         .thenAnswer((_) async => Right(tSeries));
 
     final result = await usecase.execute();

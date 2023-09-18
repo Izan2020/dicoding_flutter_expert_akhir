@@ -24,7 +24,7 @@ void main() {
 
   test('should get list of series from the repository', () async {
     // arrange
-    when(repo.searchTvs(tQuery)).thenAnswer((_) async => Right(tSeries));
+    when(repo.searchSeries(tQuery)).thenAnswer((_) async => Right(tSeries));
     // act
     final result = await usecase.execute(tQuery);
     // assert

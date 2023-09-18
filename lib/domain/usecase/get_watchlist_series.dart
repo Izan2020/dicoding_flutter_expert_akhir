@@ -8,6 +8,6 @@ class GetWatchlistSeries {
   GetWatchlistSeries(this.seriesRepository);
 
   Future<Either<Failure, List<Series>>> execute() {
-    return seriesRepository.getWatchlistTvs();
+    return seriesRepository.getWatchlistSeries();
   }
 }

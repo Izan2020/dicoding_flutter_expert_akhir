@@ -17,7 +17,7 @@ void main() {
   });
 
   test('should remove watchlist from repository', () async {
-    when(mockSeriesRepository.removeWatchlist(testSeriesDetail))
+    when(mockSeriesRepository.removeWatchlistSeries(testSeriesDetail))
         .thenAnswer((_) async => const Right('Deleted from watchlist'));
 
     final result = await usecase.execute(testSeriesDetail);

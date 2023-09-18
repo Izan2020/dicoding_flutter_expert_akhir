@@ -19,7 +19,7 @@ void main() {
   final tSeries = <Series>[];
 
   test('should get list of TopRated series', () async {
-    when(mockSeriesRepository.getTopRatedTvs())
+    when(mockSeriesRepository.getTopRatedSeries())
         .thenAnswer((_) async => Right(tSeries));
 
     final result = await usecase.execute();

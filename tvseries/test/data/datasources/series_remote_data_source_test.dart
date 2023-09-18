@@ -46,7 +46,7 @@ void main() {
       when(mockHttp.get(Uri.parse('$baseUrl/tv/airing_today?$apiKey')))
           .thenAnswer((_) async => http.Response(jsonSeriesList, 200));
 
-      final result = await dataSource.getAiringTodayTvs();
+      final result = await dataSource.getNowPlayingTvs();
 
       expect(result, tSerieslist.seriesList);
     });
@@ -57,7 +57,7 @@ void main() {
       when(mockHttp.get(Uri.parse('$baseUrl/tv/airing_today?$apiKey')))
           .thenAnswer((_) async => http.Response('Not Found', 404));
       // act
-      final call = dataSource.getAiringTodayTvs();
+      final call = dataSource.getNowPlayingTvs();
       // assert
       expect(() => call, throwsA(isA<ServerException>()));
     });
@@ -112,8 +112,7 @@ void main() {
     const tId = 1;
     test('should return list of series model when response code is 200',
         () async {
-      when(mockHttp
-              .get(Uri.parse('$baseUrl/tv/$tId/recommendations?$apiKey')))
+      when(mockHttp.get(Uri.parse('$baseUrl/tv/$tId/recommendations?$apiKey')))
           .thenAnswer((_) async => http.Response(jsonSeriesList, 200));
 
       final result = await dataSource.getTvRecommendations(tId);
@@ -124,8 +123,7 @@ void main() {
         'should throw a ServerException when the response code is 404 or other',
         () async {
       // arrange
-      when(mockHttp
-              .get(Uri.parse('$baseUrl/tv/$tId/recommendations?$apiKey')))
+      when(mockHttp.get(Uri.parse('$baseUrl/tv/$tId/recommendations?$apiKey')))
           .thenAnswer((_) async => http.Response('Not Found', 404));
       // act
       final call = dataSource.getTvRecommendations(tId);

@@ -19,7 +19,7 @@ void main() {
   final tResult = <Series>[];
 
   test('should show list of search query result', () async {
-    when(mockSeriesRepository.searchTvs(tQuery))
+    when(mockSeriesRepository.searchSeries(tQuery))
         .thenAnswer((_) async => Right(tResult));
 
     final result = await usecase.execute(tQuery);

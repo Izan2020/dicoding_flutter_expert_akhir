@@ -8,6 +8,6 @@ class GetSeriesDetail {
   GetSeriesDetail(this.repository);
 
   Future<Either<Failure, SeriesDetail>> execute(int id) {
-    return repository.getTvDetail(id);
+    return repository.getSeriesDetail(id);
   }
 }

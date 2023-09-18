@@ -7,6 +7,6 @@ class SearchSeries {
   final SeriesRepository seriesRepository;
   SearchSeries(this.seriesRepository);
   Future<Either<Failure, List<Series>>> execute(String query) async {
-    return seriesRepository.searchTvs(query);
+    return seriesRepository.searchSeries(query);
   }
 }

@@ -42,7 +42,7 @@ class MockSeriesRepository extends _i1.Mock implements _i3.SeriesRepository {
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>> getTvPlayingNow() =>
+  _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>> getNowPlayingSeries() =>
       (super.noSuchMethod(
         Invocation.method(
           #getTvPlayingNow,
@@ -76,7 +76,7 @@ class MockSeriesRepository extends _i1.Mock implements _i3.SeriesRepository {
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>>);
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>> getTopRatedTvs() =>
+  _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>> getTopRatedSeries() =>
       (super.noSuchMethod(
         Invocation.method(
           #getTopRatedTvs,
@@ -93,7 +93,8 @@ class MockSeriesRepository extends _i1.Mock implements _i3.SeriesRepository {
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>>);
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i7.SeriesDetail>> getTvDetail(int? id) =>
+  _i4.Future<_i2.Either<_i5.Failure, _i7.SeriesDetail>> getSeriesDetail(
+          int? id) =>
       (super.noSuchMethod(
         Invocation.method(
           #getTvDetail,
@@ -110,25 +111,24 @@ class MockSeriesRepository extends _i1.Mock implements _i3.SeriesRepository {
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, _i7.SeriesDetail>>);
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>> getTvRecommendations(
-          int? id) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getTvRecommendations,
-          [id],
-        ),
-        returnValue:
-            _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>>.value(
-                _FakeEither_0<_i5.Failure, List<_i6.Series>>(
-          this,
-          Invocation.method(
-            #getTvRecommendations,
-            [id],
-          ),
-        )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>>);
+  _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>>
+      getSeriesRecommendations(int? id) => (super.noSuchMethod(
+            Invocation.method(
+              #getTvRecommendations,
+              [id],
+            ),
+            returnValue:
+                _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>>.value(
+                    _FakeEither_0<_i5.Failure, List<_i6.Series>>(
+              this,
+              Invocation.method(
+                #getTvRecommendations,
+                [id],
+              ),
+            )),
+          ) as _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>>);
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>> searchTvs(
+  _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>> searchSeries(
           String? query) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -146,7 +146,7 @@ class MockSeriesRepository extends _i1.Mock implements _i3.SeriesRepository {
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>>);
   @override
-  _i4.Future<_i2.Either<_i5.Failure, String>> saveWatchlist(
+  _i4.Future<_i2.Either<_i5.Failure, String>> saveWatchlistSeries(
           _i7.SeriesDetail? tv) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -163,7 +163,7 @@ class MockSeriesRepository extends _i1.Mock implements _i3.SeriesRepository {
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, String>>);
   @override
-  _i4.Future<_i2.Either<_i5.Failure, String>> removeWatchlist(
+  _i4.Future<_i2.Either<_i5.Failure, String>> removeWatchlistSeries(
           _i7.SeriesDetail? tv) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -188,7 +188,7 @@ class MockSeriesRepository extends _i1.Mock implements _i3.SeriesRepository {
         returnValue: _i4.Future<bool>.value(false),
       ) as _i4.Future<bool>);
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>> getWatchlistTvs() =>
+  _i4.Future<_i2.Either<_i5.Failure, List<_i6.Series>>> getWatchlistSeries() =>
       (super.noSuchMethod(
         Invocation.method(
           #getWatchlistTvs,

@@ -8,6 +8,6 @@ class GetPlayingSeries {
   GetPlayingSeries(this.repository);
 
   Future<Either<Failure, List<Series>>> execute() {
-    return repository.getTvPlayingNow();
+    return repository.getNowPlayingSeries();
   }
 }

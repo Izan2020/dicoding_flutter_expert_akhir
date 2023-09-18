@@ -16,7 +16,7 @@ void main() {
   });
 
   test('should save series to watchlist ', () async {
-    when(mockSeriesRepository.saveWatchlist(testSeriesDetail))
+    when(mockSeriesRepository.saveWatchlistSeries(testSeriesDetail))
         .thenAnswer((_) async => const Right('Added to Watchlist'));
 
     final result = await usecase.execute(testSeriesDetail);

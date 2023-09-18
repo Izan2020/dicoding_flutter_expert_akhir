@@ -19,7 +19,7 @@ void main() {
   const tId = 1;
 
   test('should get detail data', () async {
-    when(mockSeriesRepository.getTvDetail(tId))
+    when(mockSeriesRepository.getSeriesDetail(tId))
         .thenAnswer((_) async => Right(testSeriesDetail));
 
     final result = await usecase.execute(tId);

@@ -8,6 +8,6 @@ class GetTopRatedSeries {
   GetTopRatedSeries(this.repository);
 
   Future<Either<Failure, List<Series>>> execute() {
-    return repository.getTopRatedTvs();
+    return repository.getTopRatedSeries();
   }
 }
