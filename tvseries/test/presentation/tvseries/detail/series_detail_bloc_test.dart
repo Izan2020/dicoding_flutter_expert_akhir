@@ -23,8 +23,8 @@ void main() {
   });
 
   final tSeriesDetail = testSeriesDetail;
-  final tFailure = ServerFailure('Server Failure');
-  final tId = 1;
+  const tFailure = ServerFailure('Server Failure');
+  const tId = 1;
 
   blocTest<SeriesDetailBloc, SeriesDetailState>(
     'Should emit [Loading, OnLoaded when data is gotten successfully]',
@@ -43,7 +43,7 @@ void main() {
     'Should emit [Loading, OnError] when data is gotten unsuccessfully]',
     build: () {
       when(usecase.execute(tId))
-          .thenAnswer((realInvocation) async => Left(tFailure));
+          .thenAnswer((realInvocation) async => const Left(tFailure));
       return bloc;
     },
     act: (bloc) => bloc.add(OnFetchSeriesDetail(tId)),

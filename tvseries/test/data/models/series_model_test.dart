@@ -3,7 +3,7 @@ import 'package:tvseries/data/models/series_model.dart';
 import 'package:tvseries/domain/entities/series.dart';
 
 void main() {
-  final tSeriesModel = SeriesModel(
+  const tSeriesModel = SeriesModel(
       backdropPath: 'backdropPath',
       genreIds: [1, 2, 3],
       id: 1,
@@ -18,7 +18,7 @@ void main() {
 
   final tSeries = Series(
       backdropPath: 'backdropPath',
-      genreIds: [1, 2, 3],
+      genreIds: const [1, 2, 3],
       id: 1,
       originalName: 'originalName',
       overview: 'overview',

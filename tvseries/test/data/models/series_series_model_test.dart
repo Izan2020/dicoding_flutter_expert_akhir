@@ -5,7 +5,7 @@ import 'package:tvseries/data/models/series_model.dart';
 import 'package:tvseries/data/models/series_response.dart';
 
 void main() {
-  final tSeriesModel = SeriesModel(
+  const tSeriesModel = SeriesModel(
     backdropPath: "/path.jpg",
     genreIds: [1, 2, 3, 4],
     id: 1,
@@ -18,7 +18,7 @@ void main() {
     voteAverage: 1.0,
     voteCount: 1,
   );
-  final tSeriesResponseModel =
+  const tSeriesResponseModel =
       SeriesResponse(seriesList: <SeriesModel>[tSeriesModel]);
 
   group('toJson', () {

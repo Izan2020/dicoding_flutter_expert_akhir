@@ -23,7 +23,7 @@ void main() {
 
   final tSeries = Series(
       backdropPath: 'backdropPath',
-      genreIds: [1, 2, 3],
+      genreIds: const [1, 2, 3],
       id: 1,
       originalName: 'originalName',
       overview: 'overview',
@@ -52,12 +52,12 @@ void main() {
       'should return as failed when data from usecase is gotten un-successfully',
       build: () {
         when(usecase.execute()).thenAnswer(
-            (realInvocation) async => Left(ServerFailure('Server Failure')));
+            (realInvocation) async => const Left(ServerFailure('Server Failure')));
         return bloc;
       },
       wait: const Duration(milliseconds: 500),
       act: (bloc) => bloc.add(OnFetchPopularSeries()),
-      expect: () => {PSEOnLoading(), PSEOnError('Server Failure')},
+      expect: () => {PSEOnLoading(), const PSEOnError('Server Failure')},
     );
   });
 }

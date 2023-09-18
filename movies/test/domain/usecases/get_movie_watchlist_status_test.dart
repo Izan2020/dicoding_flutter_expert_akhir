@@ -12,7 +12,7 @@ void main() {
     usecase = GetWatchListStatusMovie(repository);
   });
 
-  final tId = 12421;
+  const tId = 12421;
 
   group('Movie Watchlist Status Test', () {
     test('Should Return as false when data from usecase isnt found', () async {

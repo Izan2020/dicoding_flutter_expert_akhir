@@ -22,7 +22,7 @@ void main() {
 
   final tSeries = Series(
       backdropPath: 'backdropPath',
-      genreIds: [1, 2, 3],
+      genreIds: const [1, 2, 3],
       id: 1,
       originalName: 'originalName',
       overview: 'overview',
@@ -34,7 +34,7 @@ void main() {
       voteCount: 3);
   final tSeriesList = <Series>[tSeries];
   final tSeriesListEmpty = <Series>[];
-  final tQuery = 'Spiderman';
+  const tQuery = 'Spiderman';
 
   group('Get Series Search', () {
     blocTest<SearchSeriesBloc, SearchState>(
@@ -56,7 +56,7 @@ void main() {
       'Should emit [Loading, OnError] when data isnt successfully gotten',
       build: () {
         when(usecase.execute(tQuery)).thenAnswer(
-            (realInvocation) async => Left(ServerFailure('Failed')));
+            (realInvocation) async => const Left(ServerFailure('Failed')));
         return bloc;
       },
       act: (bloc) => bloc.add(OnQueryChanged(tQuery)),

@@ -7,7 +7,7 @@ import 'package:tvseries/data/models/series_detail_model.dart';
 import 'package:tvseries/domain/entities/series_detail.dart';
 
 void main() {
-  final tSeriesDetailResponse = SeriesDetailResponse(
+  const tSeriesDetailResponse = SeriesDetailResponse(
       backdropPath: 'backdropPath',
       genres: [GenreModel(id: 1, name: 'name')],
       homepage: 'homepage',
@@ -22,7 +22,7 @@ void main() {
       name: 'name',
       voteAverage: 1,
       voteCount: 1);
-  final tSeriesDetail = SeriesDetail(
+  const tSeriesDetail = SeriesDetail(
       backdropPath: 'backdropPath',
       genres: [Genre(id: 1, name: 'name')],
       id: 1,

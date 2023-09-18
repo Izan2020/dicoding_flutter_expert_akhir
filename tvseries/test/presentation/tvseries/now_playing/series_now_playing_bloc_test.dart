@@ -23,7 +23,7 @@ void main() {
 
   final tSeries = Series(
       backdropPath: 'backdropPath',
-      genreIds: [1, 2, 3],
+      genreIds: const [1, 2, 3],
       id: 1,
       originalName: 'originalName',
       overview: 'overview',
@@ -52,7 +52,7 @@ void main() {
       'should return [OnLoading, OnError] when data is gotten un-succesfully',
       build: () {
         when(usecase.execute())
-            .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+            .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return bloc;
       },
       act: (bloc) => bloc.add(OnFetchNowPlayingSeries()),

@@ -10,7 +10,7 @@ import 'package:tvseries/domain/entities/series_detail.dart';
 final testMovie = Movie(
   adult: false,
   backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
-  genreIds: [14, 28],
+  genreIds: const [14, 28],
   id: 557,
   originalTitle: 'Spider-Man',
   overview:
@@ -26,7 +26,7 @@ final testMovie = Movie(
 
 final testMovieList = [testMovie];
 
-final testMovieDetail = MovieDetail(
+const testMovieDetail = MovieDetail(
   adult: false,
   backdropPath: 'backdropPath',
   genres: [Genre(id: 1, name: 'Action')],
@@ -51,14 +51,14 @@ final testWatchlistMovie = Movie.watchlist(
 final testWatchlistSeries = Series.watchlist(
     id: 1, overview: 'overview', posterPath: 'posterPath', name: 'name');
 
-final testMovieTable = MovieTable(
+const testMovieTable = MovieTable(
   id: 1,
   title: 'title',
   posterPath: 'posterPath',
   overview: 'overview',
 );
 
-final testSeriesTable = SeriesTable(
+const testSeriesTable = SeriesTable(
   id: 1,
   name: 'name',
   posterPath: 'posterPath',
@@ -74,7 +74,7 @@ final testMovieMap = {
 
 final testSeriesDetail = SeriesDetail(
     backdropPath: 'backdropPath',
-    genres: [Genre(id: 1, name: 'Action')].cast(),
+    genres: [const Genre(id: 1, name: 'Action')].cast(),
     id: 1,
     popularity: 12,
     originalName: 'originalName',

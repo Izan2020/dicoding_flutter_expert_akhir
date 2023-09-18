@@ -10,6 +10,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:movies/presentation/bloc/movie_detail/movie_detail_bloc.dart';
 import 'package:movies/presentation/bloc/movie_detail/movie_recommendation/movie_recomendation_bloc.dart';
 import 'package:movies/presentation/bloc/movie_detail/movie_watchlist_status/movie_watchlist_status_bloc.dart';
@@ -19,13 +20,11 @@ import 'package:movies/presentation/bloc/movie_top_rated/movie_top_rated_bloc.da
 import 'package:movies/presentation/interface/screens/movie_detail_screen.dart';
 import 'package:movies/presentation/interface/screens/popular_movies_screen.dart';
 import 'package:movies/presentation/interface/screens/top_rated_movies_screen.dart';
-
 import 'package:ditonton/injection.dart' as di;
 import 'package:search/presentation/bloc/search_movies/search_movies_bloc.dart';
 import 'package:search/presentation/bloc/search_series/search_series_bloc.dart';
 import 'package:search/presentation/interface/search_movie_screen.dart';
 import 'package:search/presentation/interface/search_series_screen.dart';
-
 import 'package:tvseries/presentation/bloc/series_detail/series_detail_bloc.dart';
 import 'package:tvseries/presentation/bloc/series_detail/series_recommendation/series_recommendation_bloc.dart';
 import 'package:tvseries/presentation/bloc/series_detail/series_watchlist_status/series_watchlist_status_bloc.dart';

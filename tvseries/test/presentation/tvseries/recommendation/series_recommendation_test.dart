@@ -23,7 +23,7 @@ void main() {
 
   final tSeries = Series(
       backdropPath: 'backdropPath',
-      genreIds: [1, 2, 3],
+      genreIds: const [1, 2, 3],
       id: 1,
       originalName: 'originalName',
       overview: 'overview',
@@ -35,7 +35,7 @@ void main() {
       voteCount: 3);
   final tSeriesList = <Series>[tSeries];
 
-  final tId = 1;
+  const tId = 1;
 
   group('Get Series Recommendation', () {
     blocTest<SeriesRecommendationBloc, SeriesRecommendationState>(
@@ -44,18 +44,18 @@ void main() {
         when(usecase.execute(tId)).thenAnswer((_) async => Right(tSeriesList));
         return bloc;
       },
-      act: (bloc) => bloc.add(OnFetchSeriesRecommendation(tId)),
-      expect: () => {SRSOnLoading(), SRSOnLoaded(tSeriesList)},
+      act: (bloc) => bloc.add(const OnFetchSeriesRecommendation(tId)),
+      expect: () => {const SRSOnLoading(), SRSOnLoaded(tSeriesList)},
     );
     blocTest<SeriesRecommendationBloc, SeriesRecommendationState>(
       'should return as [OnLoading, OnError] when data is gotten un-successfully',
       build: () {
         when(usecase.execute(tId))
-            .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+            .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return bloc;
       },
-      act: (bloc) => bloc.add(OnFetchSeriesRecommendation(tId)),
-      expect: () => {SRSOnLoading(), SRSOnError('Server Failure')},
+      act: (bloc) => bloc.add(const OnFetchSeriesRecommendation(tId)),
+      expect: () => {const SRSOnLoading(), const SRSOnError('Server Failure')},
     );
   });
 }

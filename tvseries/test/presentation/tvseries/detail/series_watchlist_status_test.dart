@@ -33,7 +33,7 @@ void main() {
         saveWatchlistSeries: usecaseSave);
   });
 
-  final tId = 1;
+  const tId = 1;
 
   group('Get Watchlist Status', () {
     blocTest<SeriesWatchlistStatusBloc, SeriesWatchlistStatusState>(
@@ -43,9 +43,9 @@ void main() {
         return bloc;
       },
       wait: const Duration(milliseconds: 500),
-      act: (bloc) => bloc.add(OnLoadWatchlistStatus(tId)),
+      act: (bloc) => bloc.add(const OnLoadWatchlistStatus(tId)),
       expect: () =>
-          {SeriesWatchlistStatusState(status: false, message: 'message')},
+          {const SeriesWatchlistStatusState(status: false, message: 'message')},
     );
     blocTest<SeriesWatchlistStatusBloc, SeriesWatchlistStatusState>(
       'Should return as true when usecase found the Series in database',
@@ -54,9 +54,9 @@ void main() {
         return bloc;
       },
       wait: const Duration(milliseconds: 500),
-      act: (bloc) => bloc.add(OnLoadWatchlistStatus(tId)),
+      act: (bloc) => bloc.add(const OnLoadWatchlistStatus(tId)),
       expect: () =>
-          {SeriesWatchlistStatusState(status: true, message: 'message')},
+          {const SeriesWatchlistStatusState(status: true, message: 'message')},
     );
   });
 
@@ -65,7 +65,7 @@ void main() {
       'Should set state of message "Added to Watchlist" when usecase executed Successfully ',
       build: () {
         when(usecaseSave.execute(testSeriesDetail))
-            .thenAnswer((realInvocation) async => Right('Added to Watchlist'));
+            .thenAnswer((realInvocation) async => const Right('Added to Watchlist'));
         when(usecaseStatus.execute(testSeriesDetail.id))
             .thenAnswer((realInvocation) async => true);
         return bloc;
@@ -73,7 +73,7 @@ void main() {
       wait: const Duration(milliseconds: 500),
       act: (bloc) => {bloc.add(OnSaveWatchlist(testSeriesDetail))},
       expect: () => {
-        SeriesWatchlistStatusState(message: 'Added to Watchlist', status: true)
+        const SeriesWatchlistStatusState(message: 'Added to Watchlist', status: true)
       },
     );
 
@@ -81,7 +81,7 @@ void main() {
       'Should set state of message "Deleted from Watchlist" when usecase executed Successfully ',
       build: () {
         when(usecaseRemove.execute(testSeriesDetail)).thenAnswer(
-            (realInvocation) async => Right('Deleted from Watchlist'));
+            (realInvocation) async => const Right('Deleted from Watchlist'));
         when(usecaseStatus.execute(testSeriesDetail.id))
             .thenAnswer((realInvocation) async => false);
         return bloc;
@@ -89,7 +89,7 @@ void main() {
       wait: const Duration(milliseconds: 500),
       act: (bloc) => {bloc.add(OnRemoveWatchlist(testSeriesDetail))},
       expect: () => {
-        SeriesWatchlistStatusState(
+        const SeriesWatchlistStatusState(
             message: 'Deleted from Watchlist', status: false)
       },
     );
@@ -99,7 +99,7 @@ void main() {
       build: () {
         when(usecaseRemove.execute(testSeriesDetail)).thenAnswer(
             (realInvocation) async =>
-                Left(DatabaseFailure('Database Failure')));
+                const Left(DatabaseFailure('Database Failure')));
         when(usecaseStatus.execute(testSeriesDetail.id))
             .thenAnswer((realInvocation) async => false);
         return bloc;
@@ -107,7 +107,7 @@ void main() {
       wait: const Duration(milliseconds: 500),
       act: (bloc) => {bloc.add(OnRemoveWatchlist(testSeriesDetail))},
       expect: () => {
-        SeriesWatchlistStatusState(message: 'Database Failure', status: false)
+        const SeriesWatchlistStatusState(message: 'Database Failure', status: false)
       },
     );
   });

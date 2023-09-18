@@ -16,7 +16,7 @@ void main() {
     usecase = GetSeriesDetail(mockSeriesRepository);
   });
 
-  final tId = 1;
+  const tId = 1;
 
   test('should get detail data', () async {
     when(mockSeriesRepository.getTvDetail(tId))

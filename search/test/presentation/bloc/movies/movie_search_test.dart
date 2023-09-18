@@ -23,7 +23,7 @@ void main() {
 
   final tMovie = Movie(
       backdropPath: 'backdropPath',
-      genreIds: [1, 2, 3],
+      genreIds: const [1, 2, 3],
       id: 1,
       originalTitle: 'originalName',
       overview: 'overview',
@@ -37,7 +37,7 @@ void main() {
       video: true);
   final tMovieList = <Movie>[tMovie];
   final tMovieListEmpty = <Movie>[];
-  final tQuery = 'Spiderman';
+  const tQuery = 'Spiderman';
 
   group('Get Movies Search', () {
     blocTest<SearchMoviesBloc, SearchState>(
@@ -55,7 +55,7 @@ void main() {
       'should return as [OnLoading, OnError] when data is gotten un-successfully',
       build: () {
         when(usecase.execute(tQuery))
-            .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+            .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return bloc;
       },
       wait: const Duration(milliseconds: 500),

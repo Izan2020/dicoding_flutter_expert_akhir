@@ -13,8 +13,8 @@ void main() {
     usecase = GetWatchlistStatusSeries(mockSeriesRepository);
   });
 
-  final tId = 1;
-  final tStatus = true;
+  const tId = 1;
+  const tStatus = true;
 
   test('should get watchlist status', () async {
     when(mockSeriesRepository.isAddedToWatchlist(tId))

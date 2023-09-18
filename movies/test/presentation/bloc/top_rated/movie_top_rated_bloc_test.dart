@@ -23,7 +23,7 @@ void main() {
 
   final tMovie = Movie(
       backdropPath: 'backdropPath',
-      genreIds: [1, 2, 3],
+      genreIds: const [1, 2, 3],
       id: 1,
       originalTitle: 'originalName',
       overview: 'overview',
@@ -53,7 +53,7 @@ void main() {
       'should return [OnLoading, OnError] when data is gotten un-successfully',
       build: () {
         when(usecase.execute()).thenAnswer((realInvocation) async =>
-            Left(ServerFailure('Servernya lagi sibuk ngab tunggu ntar ye')));
+            const Left(ServerFailure('Servernya lagi sibuk ngab tunggu ntar ye')));
         return bloc;
       },
       act: (bloc) => bloc.add(OnFetchTopRatedMovie()),

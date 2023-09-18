@@ -390,7 +390,6 @@ class MockSSLCertifiedClient extends _i1.Mock
     _i1.throwOnMissingStub(this);
   }
 
-  @override
   _i7.Future<_i4.IOClient> get execute => (super.noSuchMethod(
         Invocation.getter(#execute),
         returnValue: _i7.Future<_i4.IOClient>.value(_FakeIOClient_2(

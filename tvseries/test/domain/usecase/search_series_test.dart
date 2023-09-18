@@ -15,7 +15,7 @@ void main() {
     usecase = SearchSeries(mockSeriesRepository);
   });
 
-  final tQuery = 'Spiderman';
+  const tQuery = 'Spiderman';
   final tResult = <Series>[];
 
   test('should show list of search query result', () async {
