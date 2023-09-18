@@ -39,6 +39,7 @@ import 'package:tvseries/presentation/interface/screens/top_rated_series_screen.
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
