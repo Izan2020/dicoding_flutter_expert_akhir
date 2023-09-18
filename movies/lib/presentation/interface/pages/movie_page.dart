@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:core/common/enums.dart';
 import 'package:core/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -84,8 +83,9 @@ class _MoviePageState extends State<MoviePage> {
         _buildSubHeading(
           title: 'Top Rated',
           onTap: () => Navigator.pushNamed(
-              context, TopRatedMoviesScreen.ROUTE_NAME,
-              arguments: HomeEvent.Movies),
+            context,
+            TopRatedMoviesScreen.ROUTE_NAME,
+          ),
         ),
         BlocBuilder<MovieTopRatedBloc, MovieTopRatedState>(
             builder: ((context, state) {

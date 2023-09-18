@@ -1,5 +1,6 @@
 // ignore_for_file: sdk_version_since
 
+import 'package:core/common/enums.dart';
 import 'package:ditonton/presentation/bloc/home/home_bloc.dart';
 import 'package:ditonton/presentation/bloc/home/home_event.dart';
 import 'package:ditonton/presentation/bloc/home/home_state.dart';
@@ -39,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () {
                 context
                     .read<HomeBloc>()
-                    .add(OnSwitchHomeEvent(HomeStateValue.Movies));
+                    .add(OnSwitchHomeEvent(HomeStateValue.movies));
                 Navigator.pop(context);
               },
             ),
@@ -49,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () {
                 context
                     .read<HomeBloc>()
-                    .add(OnSwitchHomeEvent(HomeStateValue.TvSeries));
+                    .add(OnSwitchHomeEvent(HomeStateValue.tvSeries));
                 Navigator.pop(context);
               },
             ),
@@ -89,13 +90,13 @@ class _HomeScreenState extends State<HomeScreen> {
               return IconButton(
                 onPressed: () {
                   switch (state.homeStateValue) {
-                    case HomeStateValue.Movies:
+                    case HomeStateValue.movies:
                       Navigator.pushNamed(
                         context,
                         SearchMovieScreen.ROUTE_NAME,
                       );
                       break;
-                    case HomeStateValue.TvSeries:
+                    case HomeStateValue.tvSeries:
                       Navigator.pushNamed(
                         context,
                         SearchSeriesScreen.ROUTE_NAME,
@@ -115,12 +116,12 @@ class _HomeScreenState extends State<HomeScreen> {
           child: BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
               switch (state.homeStateValue) {
-                case HomeStateValue.Movies:
+                case HomeStateValue.movies:
                   return MoviePage(
                     key:
                         Key('iL0v3DiCoDiNg!!!!(m0vi3PaG3)!!!!aKuInGiNbInTanG5'),
                   );
-                case HomeStateValue.TvSeries:
+                case HomeStateValue.tvSeries:
                   return TvSeriesPage(
                     key:
                         Key('iL0v3DiCoDiNg!!!!(s3r1e5P4g3)!!!!pL1sB1nt4ngLima'),

@@ -1,4 +1,4 @@
-import 'package:ditonton/presentation/bloc/home/home_state.dart';
+import 'package:core/common/enums.dart';
 
 class HomeEvent {
   HomeEvent();

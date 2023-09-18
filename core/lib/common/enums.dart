@@ -1,3 +1,1 @@
-// ignore_for_file: constant_identifier_names
-
-enum HomeEvent { Movies, TvSeries }
+enum HomeStateValue { tvSeries, movies }

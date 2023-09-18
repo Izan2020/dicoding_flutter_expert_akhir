@@ -1,4 +1,5 @@
 import 'package:bloc_test/bloc_test.dart';
+import 'package:core/common/enums.dart';
 import 'package:ditonton/presentation/bloc/home/home_bloc.dart';
 import 'package:ditonton/presentation/bloc/home/home_event.dart';
 import 'package:ditonton/presentation/bloc/home/home_state.dart';
@@ -43,10 +44,10 @@ void main() {
   group('Home Screen Test', () {
     testWidgets('should show TvSeries Page when state is TvSeries',
         (widgetTester) async {
-      when(() => homeBloc.add(OnSwitchHomeEvent(HomeStateValue.TvSeries)))
+      when(() => homeBloc.add(OnSwitchHomeEvent(HomeStateValue.tvSeries)))
           .thenAnswer((invocation) {});
       when(() => homeBloc.state).thenAnswer(
-        (realInvocation) => HomeState(homeStateValue: HomeStateValue.TvSeries),
+        (realInvocation) => HomeState(homeStateValue: HomeStateValue.tvSeries),
       );
 
       final pageFinder =
