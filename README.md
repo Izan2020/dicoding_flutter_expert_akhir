@@ -16,6 +16,14 @@ Repository ini merupakan starter project submission kelas Flutter Expert Dicodin
 
 ---
 
+## Firebase Crashlytics
+
+<img width="1284" alt="Screenshot 2023-09-18 at 12 02 30" src="https://github.com/Izan2020/dicoding_flutter_expert_akhir/assets/59131023/a0f43d60-152c-48ab-b4a3-08387a107132">
+<img width="1284" alt="Screenshot 2023-09-18 at 12 07 23" src="https://github.com/Izan2020/dicoding_flutter_expert_akhir/assets/59131023/b6693df6-ff1a-4518-8a8d-6db6902d7e39">
+
+
+---
+
 ## Tips Submission Awal
 
 Pastikan untuk memeriksa kembali seluruh hasil testing pada submissionmu sebelum dikirimkan. Karena kriteria pada submission ini akan diperiksa setelah seluruh berkas testing berhasil dijalankan.
