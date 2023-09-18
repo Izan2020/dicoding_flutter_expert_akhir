@@ -13,6 +13,9 @@ Repository ini merupakan starter project submission kelas Flutter Expert Dicodin
 ## Code Magic Build
 
 <img width="1053" alt="image" src="https://github.com/Izan2020/dicoding_flutter_expert_akhir/assets/59131023/48f05606-0fd0-4424-87e8-243678425e64">
+<img width="1284" alt="Screenshot 2023-09-18 at 12 12 00" src="https://github.com/Izan2020/dicoding_flutter_expert_akhir/assets/59131023/e946c3a3-7ee8-42f5-b0c9-1f55376f4232">
+
+
 
 ---
 
