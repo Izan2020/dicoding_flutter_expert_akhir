@@ -30,6 +30,7 @@ dependencies:
   build_runner: ^2.4.6
   bloc_test: ^9.1.4
   
+  
 
 dev_dependencies:
   flutter_test:

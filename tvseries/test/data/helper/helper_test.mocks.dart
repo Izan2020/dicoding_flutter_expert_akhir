@@ -4,15 +4,14 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i7;
-import 'dart:convert' as _i17;
-import 'dart:typed_data' as _i18;
+import 'dart:convert' as _i16;
+import 'dart:typed_data' as _i17;
 
 import 'package:core/utils/failure.dart' as _i8;
 import 'package:core/utils/ssl_pinning.dart' as _i15;
 import 'package:dartz/dartz.dart' as _i2;
-import 'package:http/io_client.dart' as _i4;
-import 'package:http/src/base_request.dart' as _i16;
-import 'package:http/src/response.dart' as _i5;
+import 'package:http/http.dart' as _i4;
+import 'package:http/io_client.dart' as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:tvseries/data/datasource/series_local_data_source.dart' as _i13;
 import 'package:tvseries/data/datasource/series_remote_data_source.dart'
@@ -56,8 +55,8 @@ class _FakeSeriesDetailResponse_1 extends _i1.SmartFake
         );
 }
 
-class _FakeIOClient_2 extends _i1.SmartFake implements _i4.IOClient {
-  _FakeIOClient_2(
+class _FakeResponse_2 extends _i1.SmartFake implements _i4.Response {
+  _FakeResponse_2(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -67,18 +66,8 @@ class _FakeIOClient_2 extends _i1.SmartFake implements _i4.IOClient {
 }
 
 class _FakeIOStreamedResponse_3 extends _i1.SmartFake
-    implements _i4.IOStreamedResponse {
+    implements _i5.IOStreamedResponse {
   _FakeIOStreamedResponse_3(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
-}
-
-class _FakeResponse_4 extends _i1.SmartFake implements _i5.Response {
-  _FakeResponse_4(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -99,7 +88,7 @@ class MockSeriesRepository extends _i1.Mock implements _i6.SeriesRepository {
   _i7.Future<_i2.Either<_i8.Failure, List<_i9.Series>>> getNowPlayingSeries() =>
       (super.noSuchMethod(
         Invocation.method(
-          #getTvPlayingNow,
+          #getNowPlayingSeries,
           [],
         ),
         returnValue:
@@ -107,7 +96,7 @@ class MockSeriesRepository extends _i1.Mock implements _i6.SeriesRepository {
                 _FakeEither_0<_i8.Failure, List<_i9.Series>>(
           this,
           Invocation.method(
-            #getTvPlayingNow,
+            #getNowPlayingSeries,
             [],
           ),
         )),
@@ -133,7 +122,7 @@ class MockSeriesRepository extends _i1.Mock implements _i6.SeriesRepository {
   _i7.Future<_i2.Either<_i8.Failure, List<_i9.Series>>> getTopRatedSeries() =>
       (super.noSuchMethod(
         Invocation.method(
-          #getTopRatedTvs,
+          #getTopRatedSeries,
           [],
         ),
         returnValue:
@@ -141,7 +130,7 @@ class MockSeriesRepository extends _i1.Mock implements _i6.SeriesRepository {
                 _FakeEither_0<_i8.Failure, List<_i9.Series>>(
           this,
           Invocation.method(
-            #getTopRatedTvs,
+            #getTopRatedSeries,
             [],
           ),
         )),
@@ -151,7 +140,7 @@ class MockSeriesRepository extends _i1.Mock implements _i6.SeriesRepository {
           int? id) =>
       (super.noSuchMethod(
         Invocation.method(
-          #getTvDetail,
+          #getSeriesDetail,
           [id],
         ),
         returnValue:
@@ -159,7 +148,7 @@ class MockSeriesRepository extends _i1.Mock implements _i6.SeriesRepository {
                 _FakeEither_0<_i8.Failure, _i10.SeriesDetail>(
           this,
           Invocation.method(
-            #getTvDetail,
+            #getSeriesDetail,
             [id],
           ),
         )),
@@ -168,7 +157,7 @@ class MockSeriesRepository extends _i1.Mock implements _i6.SeriesRepository {
   _i7.Future<_i2.Either<_i8.Failure, List<_i9.Series>>>
       getSeriesRecommendations(int? id) => (super.noSuchMethod(
             Invocation.method(
-              #getTvRecommendations,
+              #getSeriesRecommendations,
               [id],
             ),
             returnValue:
@@ -176,7 +165,7 @@ class MockSeriesRepository extends _i1.Mock implements _i6.SeriesRepository {
                     _FakeEither_0<_i8.Failure, List<_i9.Series>>(
               this,
               Invocation.method(
-                #getTvRecommendations,
+                #getSeriesRecommendations,
                 [id],
               ),
             )),
@@ -186,7 +175,7 @@ class MockSeriesRepository extends _i1.Mock implements _i6.SeriesRepository {
           String? query) =>
       (super.noSuchMethod(
         Invocation.method(
-          #searchTvs,
+          #searchSeries,
           [query],
         ),
         returnValue:
@@ -194,7 +183,7 @@ class MockSeriesRepository extends _i1.Mock implements _i6.SeriesRepository {
                 _FakeEither_0<_i8.Failure, List<_i9.Series>>(
           this,
           Invocation.method(
-            #searchTvs,
+            #searchSeries,
             [query],
           ),
         )),
@@ -204,14 +193,14 @@ class MockSeriesRepository extends _i1.Mock implements _i6.SeriesRepository {
           _i10.SeriesDetail? tv) =>
       (super.noSuchMethod(
         Invocation.method(
-          #saveWatchlist,
+          #saveWatchlistSeries,
           [tv],
         ),
         returnValue: _i7.Future<_i2.Either<_i8.Failure, String>>.value(
             _FakeEither_0<_i8.Failure, String>(
           this,
           Invocation.method(
-            #saveWatchlist,
+            #saveWatchlistSeries,
             [tv],
           ),
         )),
@@ -221,14 +210,14 @@ class MockSeriesRepository extends _i1.Mock implements _i6.SeriesRepository {
           _i10.SeriesDetail? tv) =>
       (super.noSuchMethod(
         Invocation.method(
-          #removeWatchlist,
+          #removeWatchlistSeries,
           [tv],
         ),
         returnValue: _i7.Future<_i2.Either<_i8.Failure, String>>.value(
             _FakeEither_0<_i8.Failure, String>(
           this,
           Invocation.method(
-            #removeWatchlist,
+            #removeWatchlistSeries,
             [tv],
           ),
         )),
@@ -245,7 +234,7 @@ class MockSeriesRepository extends _i1.Mock implements _i6.SeriesRepository {
   _i7.Future<_i2.Either<_i8.Failure, List<_i9.Series>>> getWatchlistSeries() =>
       (super.noSuchMethod(
         Invocation.method(
-          #getWatchlistTvs,
+          #getWatchlistSeries,
           [],
         ),
         returnValue:
@@ -253,7 +242,7 @@ class MockSeriesRepository extends _i1.Mock implements _i6.SeriesRepository {
                 _FakeEither_0<_i8.Failure, List<_i9.Series>>(
           this,
           Invocation.method(
-            #getWatchlistTvs,
+            #getWatchlistSeries,
             [],
           ),
         )),
@@ -272,7 +261,7 @@ class MockSeriesRemoteDataSource extends _i1.Mock
   @override
   _i7.Future<List<_i12.SeriesModel>> getNowPlayingTvs() => (super.noSuchMethod(
         Invocation.method(
-          #getAiringTodayTvs,
+          #getNowPlayingTvs,
           [],
         ),
         returnValue:
@@ -390,59 +379,8 @@ class MockSSLCertifiedClient extends _i1.Mock
     _i1.throwOnMissingStub(this);
   }
 
-  _i7.Future<_i4.IOClient> get execute => (super.noSuchMethod(
-        Invocation.getter(#execute),
-        returnValue: _i7.Future<_i4.IOClient>.value(_FakeIOClient_2(
-          this,
-          Invocation.getter(#execute),
-        )),
-      ) as _i7.Future<_i4.IOClient>);
   @override
-  _i7.Future<_i4.IOStreamedResponse> send(_i16.BaseRequest? request) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #send,
-          [request],
-        ),
-        returnValue:
-            _i7.Future<_i4.IOStreamedResponse>.value(_FakeIOStreamedResponse_3(
-          this,
-          Invocation.method(
-            #send,
-            [request],
-          ),
-        )),
-      ) as _i7.Future<_i4.IOStreamedResponse>);
-  @override
-  void close() => super.noSuchMethod(
-        Invocation.method(
-          #close,
-          [],
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
-  _i7.Future<_i5.Response> head(
-    Uri? url, {
-    Map<String, String>? headers,
-  }) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #head,
-          [url],
-          {#headers: headers},
-        ),
-        returnValue: _i7.Future<_i5.Response>.value(_FakeResponse_4(
-          this,
-          Invocation.method(
-            #head,
-            [url],
-            {#headers: headers},
-          ),
-        )),
-      ) as _i7.Future<_i5.Response>);
-  @override
-  _i7.Future<_i5.Response> get(
+  _i7.Future<_i4.Response> get(
     Uri? url, {
     Map<String, String>? headers,
   }) =>
@@ -452,7 +390,7 @@ class MockSSLCertifiedClient extends _i1.Mock
           [url],
           {#headers: headers},
         ),
-        returnValue: _i7.Future<_i5.Response>.value(_FakeResponse_4(
+        returnValue: _i7.Future<_i4.Response>.value(_FakeResponse_2(
           this,
           Invocation.method(
             #get,
@@ -460,13 +398,57 @@ class MockSSLCertifiedClient extends _i1.Mock
             {#headers: headers},
           ),
         )),
-      ) as _i7.Future<_i5.Response>);
+      ) as _i7.Future<_i4.Response>);
   @override
-  _i7.Future<_i5.Response> post(
+  _i7.Future<_i5.IOStreamedResponse> send(_i4.BaseRequest? request) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #send,
+          [request],
+        ),
+        returnValue:
+            _i7.Future<_i5.IOStreamedResponse>.value(_FakeIOStreamedResponse_3(
+          this,
+          Invocation.method(
+            #send,
+            [request],
+          ),
+        )),
+      ) as _i7.Future<_i5.IOStreamedResponse>);
+  @override
+  void close() => super.noSuchMethod(
+        Invocation.method(
+          #close,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  _i7.Future<_i4.Response> head(
+    Uri? url, {
+    Map<String, String>? headers,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #head,
+          [url],
+          {#headers: headers},
+        ),
+        returnValue: _i7.Future<_i4.Response>.value(_FakeResponse_2(
+          this,
+          Invocation.method(
+            #head,
+            [url],
+            {#headers: headers},
+          ),
+        )),
+      ) as _i7.Future<_i4.Response>);
+  @override
+  _i7.Future<_i4.Response> post(
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i17.Encoding? encoding,
+    _i16.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -478,7 +460,7 @@ class MockSSLCertifiedClient extends _i1.Mock
             #encoding: encoding,
           },
         ),
-        returnValue: _i7.Future<_i5.Response>.value(_FakeResponse_4(
+        returnValue: _i7.Future<_i4.Response>.value(_FakeResponse_2(
           this,
           Invocation.method(
             #post,
@@ -490,13 +472,13 @@ class MockSSLCertifiedClient extends _i1.Mock
             },
           ),
         )),
-      ) as _i7.Future<_i5.Response>);
+      ) as _i7.Future<_i4.Response>);
   @override
-  _i7.Future<_i5.Response> put(
+  _i7.Future<_i4.Response> put(
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i17.Encoding? encoding,
+    _i16.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -508,7 +490,7 @@ class MockSSLCertifiedClient extends _i1.Mock
             #encoding: encoding,
           },
         ),
-        returnValue: _i7.Future<_i5.Response>.value(_FakeResponse_4(
+        returnValue: _i7.Future<_i4.Response>.value(_FakeResponse_2(
           this,
           Invocation.method(
             #put,
@@ -520,13 +502,13 @@ class MockSSLCertifiedClient extends _i1.Mock
             },
           ),
         )),
-      ) as _i7.Future<_i5.Response>);
+      ) as _i7.Future<_i4.Response>);
   @override
-  _i7.Future<_i5.Response> patch(
+  _i7.Future<_i4.Response> patch(
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i17.Encoding? encoding,
+    _i16.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -538,7 +520,7 @@ class MockSSLCertifiedClient extends _i1.Mock
             #encoding: encoding,
           },
         ),
-        returnValue: _i7.Future<_i5.Response>.value(_FakeResponse_4(
+        returnValue: _i7.Future<_i4.Response>.value(_FakeResponse_2(
           this,
           Invocation.method(
             #patch,
@@ -550,13 +532,13 @@ class MockSSLCertifiedClient extends _i1.Mock
             },
           ),
         )),
-      ) as _i7.Future<_i5.Response>);
+      ) as _i7.Future<_i4.Response>);
   @override
-  _i7.Future<_i5.Response> delete(
+  _i7.Future<_i4.Response> delete(
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i17.Encoding? encoding,
+    _i16.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -568,7 +550,7 @@ class MockSSLCertifiedClient extends _i1.Mock
             #encoding: encoding,
           },
         ),
-        returnValue: _i7.Future<_i5.Response>.value(_FakeResponse_4(
+        returnValue: _i7.Future<_i4.Response>.value(_FakeResponse_2(
           this,
           Invocation.method(
             #delete,
@@ -580,7 +562,7 @@ class MockSSLCertifiedClient extends _i1.Mock
             },
           ),
         )),
-      ) as _i7.Future<_i5.Response>);
+      ) as _i7.Future<_i4.Response>);
   @override
   _i7.Future<String> read(
     Uri? url, {
@@ -595,7 +577,7 @@ class MockSSLCertifiedClient extends _i1.Mock
         returnValue: _i7.Future<String>.value(''),
       ) as _i7.Future<String>);
   @override
-  _i7.Future<_i18.Uint8List> readBytes(
+  _i7.Future<_i17.Uint8List> readBytes(
     Uri? url, {
     Map<String, String>? headers,
   }) =>
@@ -605,6 +587,6 @@ class MockSSLCertifiedClient extends _i1.Mock
           [url],
           {#headers: headers},
         ),
-        returnValue: _i7.Future<_i18.Uint8List>.value(_i18.Uint8List(0)),
-      ) as _i7.Future<_i18.Uint8List>);
+        returnValue: _i7.Future<_i17.Uint8List>.value(_i17.Uint8List(0)),
+      ) as _i7.Future<_i17.Uint8List>);
 }

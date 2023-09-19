@@ -1,14 +1,8 @@
-import 'package:equatable/equatable.dart';
-
-abstract class SeriesRecommendationEvent extends Equatable {
+abstract class SeriesRecommendationEvent {
   const SeriesRecommendationEvent();
-  @override
-  List<Object?> get props => [];
 }
 
 class OnFetchSeriesRecommendation extends SeriesRecommendationEvent {
   final int id;
   const OnFetchSeriesRecommendation(this.id);
-  @override
-  List<Object> get props => [id];
 }

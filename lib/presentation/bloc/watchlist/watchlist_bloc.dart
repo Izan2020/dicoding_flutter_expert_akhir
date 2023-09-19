@@ -16,7 +16,8 @@ class WatchlistBloc extends Bloc<WatchlistEvent, WatchlistState> {
     on<OnLoadMovies>((event, emit) async {
       final result = await getWatchlistMovies.execute();
       result.fold(
-        (l) => null,
+        (l) => emit(
+            WatchlistState(listOfMovies: [], listOfSeries: state.listOfSeries)),
         (r) => emit(WatchlistState(
           listOfMovies: r,
           listOfSeries: state.listOfSeries,
@@ -26,7 +27,8 @@ class WatchlistBloc extends Bloc<WatchlistEvent, WatchlistState> {
     on<OnLoadSeries>((event, emit) async {
       final result = await getWatchlistSeries.execute();
       result.fold(
-        (l) => null,
+        (l) => emit(
+            WatchlistState(listOfMovies: state.listOfMovies, listOfSeries: [])),
         (r) => emit(WatchlistState(
           listOfMovies: state.listOfMovies,
           listOfSeries: r,

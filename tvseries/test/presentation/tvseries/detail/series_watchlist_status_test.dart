@@ -43,9 +43,10 @@ void main() {
         return bloc;
       },
       wait: const Duration(milliseconds: 500),
-      act: (bloc) => bloc.add(const OnLoadWatchlistStatus(tId)),
-      expect: () =>
-          {const SeriesWatchlistStatusState(status: false, message: 'message')},
+      act: (bloc) => bloc.add(const OnLoadWatchlistStatus(
+        tId,
+      )),
+      expect: () => {const SeriesWatchlistStatusState(status: false)},
     );
     blocTest<SeriesWatchlistStatusBloc, SeriesWatchlistStatusState>(
       'Should return as true when usecase found the Series in database',
@@ -55,8 +56,7 @@ void main() {
       },
       wait: const Duration(milliseconds: 500),
       act: (bloc) => bloc.add(const OnLoadWatchlistStatus(tId)),
-      expect: () =>
-          {const SeriesWatchlistStatusState(status: true, message: 'message')},
+      expect: () => {const SeriesWatchlistStatusState(status: true)},
     );
   });
 
@@ -64,8 +64,8 @@ void main() {
     blocTest<SeriesWatchlistStatusBloc, SeriesWatchlistStatusState>(
       'Should set state of message "Added to Watchlist" when usecase executed Successfully ',
       build: () {
-        when(usecaseSave.execute(testSeriesDetail))
-            .thenAnswer((realInvocation) async => const Right('Added to Watchlist'));
+        when(usecaseSave.execute(testSeriesDetail)).thenAnswer(
+            (realInvocation) async => const Right('Added to Watchlist'));
         when(usecaseStatus.execute(testSeriesDetail.id))
             .thenAnswer((realInvocation) async => true);
         return bloc;
@@ -73,7 +73,8 @@ void main() {
       wait: const Duration(milliseconds: 500),
       act: (bloc) => {bloc.add(OnSaveWatchlist(testSeriesDetail))},
       expect: () => {
-        const SeriesWatchlistStatusState(message: 'Added to Watchlist', status: true)
+        const SeriesWatchlistStatusState(
+            message: 'Added to Watchlist', status: true)
       },
     );
 
@@ -107,7 +108,8 @@ void main() {
       wait: const Duration(milliseconds: 500),
       act: (bloc) => {bloc.add(OnRemoveWatchlist(testSeriesDetail))},
       expect: () => {
-        const SeriesWatchlistStatusState(message: 'Database Failure', status: false)
+        const SeriesWatchlistStatusState(
+            message: 'Database Failure', status: false)
       },
     );
   });

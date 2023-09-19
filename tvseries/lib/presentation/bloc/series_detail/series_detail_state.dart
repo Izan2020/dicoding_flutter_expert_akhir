@@ -20,6 +20,8 @@ class SDSOnInit extends SeriesDetailState {}
 class SDSOnError extends SeriesDetailState {
   final String message;
   const SDSOnError(this.message);
+  @override
+  List<Object?> get props => [message];
 }
 
 class SDSOnLoading extends SeriesDetailState {}

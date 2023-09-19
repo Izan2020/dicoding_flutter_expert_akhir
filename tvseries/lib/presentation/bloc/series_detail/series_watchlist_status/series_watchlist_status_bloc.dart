@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tvseries/domain/usecases/get_watchlist_status_series.dart';
 import 'package:tvseries/domain/usecases/remove_watchlist.dart';
@@ -30,36 +29,28 @@ class SeriesWatchlistStatusBloc
       var message = '';
       result.fold(
         (l) {
-          debugPrint('Failure ORW ${l.message}');
           message = l.message;
         },
         (r) {
-          debugPrint('Success ORW $r');
           message = r;
         },
       );
       final status = await getWatchlistStatusSeries.execute(event.series.id);
       emit(SeriesWatchlistStatusState(status: status, message: message));
-      debugPrint(
-          'Status \nMessage : New ($message) > State (${state.message}) \nIsAdded : New ($status) > State (${state.status}) \nID : (${event.series.id})');
     });
     on<OnSaveWatchlist>((event, emit) async {
       final result = await saveWatchlistSeries.execute(event.series);
       var message = '';
       result.fold(
         (l) {
-          debugPrint('Failure OSW ${l.message}');
           message = l.message;
         },
         (r) {
-          debugPrint('Success OSW $r');
           message = r;
         },
       );
       final status = await getWatchlistStatusSeries.execute(event.series.id);
       emit(SeriesWatchlistStatusState(status: status, message: message));
-      debugPrint(
-          'Status \nMessage : New ($message) > State (${state.message}) \nIsAdded : New ($status) > State (${state.status}) \nID : (${event.series.id})');
     });
   }
 }

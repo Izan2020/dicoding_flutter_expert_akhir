@@ -1,9 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-abstract class SeriesDetailEvent extends Equatable {
-  @override
-  List<Object?> get props => [];
-}
+abstract class SeriesDetailEvent extends Equatable {}
 
 class OnFetchSeriesDetail extends SeriesDetailEvent {
   final int id;

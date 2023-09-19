@@ -6,6 +6,7 @@ import 'package:dartz/dartz.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+
 import 'package:tvseries/data/models/series_model.dart';
 import 'package:tvseries/data/repositories/series_repository_impl.dart';
 import 'package:tvseries/domain/entities/series.dart';
@@ -56,6 +57,65 @@ void main() {
   final tSeriesModelList = <SeriesModel>[tSeriesModel];
 
   final tSeriesList = <Series>[tSeries];
+
+  group('getSeriesDetail', () {
+    const seriesId = 123; // Replace with the series ID you want to test.
+
+    test(
+        'should return SeriesDetail when the call to remote data source is successful',
+        () async {
+      // Arrange: Define the expected result when calling getTvDetail on the mock.
+
+      when(remoteDataSource.getTvDetail(seriesId))
+          .thenAnswer((_) async => testSeriesDetailResponse);
+
+      // Act: Call the repository method.
+      final result = await repository.getSeriesDetail(seriesId);
+
+      // Assert: Check that the result is a Right containing the expected SeriesDetail.
+      expect(result, Right(testSeriesDetail));
+      // Verify that getTvDetail was called with the correct seriesId.
+      verify(remoteDataSource.getTvDetail(seriesId));
+      // Verify that no other method of the mock was called.
+      verifyNoMoreInteractions(remoteDataSource);
+    });
+
+    test(
+        'should return a Left(ServerFailure) when the call to remote data source throws a ServerException',
+        () async {
+      // Arrange: Simulate a ServerException when calling getTvDetail on the mock.
+      when(remoteDataSource.getTvDetail(seriesId)).thenThrow(ServerException());
+
+      // Act: Call the repository method.
+      final result = await repository.getSeriesDetail(seriesId);
+
+      // Assert: Check that the result is a Left containing a ServerFailure.
+      expect(result, Left(ServerFailure('')));
+      // Verify that getTvDetail was called with the correct seriesId.
+      verify(remoteDataSource.getTvDetail(seriesId));
+      // Verify that no other method of the mock was called.
+      verifyNoMoreInteractions(remoteDataSource);
+    });
+
+    test(
+        'should return a Left(ConnectionFailure) when the call to remote data source throws a SocketException',
+        () async {
+      // Arrange: Simulate a SocketException when calling getTvDetail on the mock.
+      when(remoteDataSource.getTvDetail(seriesId))
+          .thenThrow(SocketException(''));
+
+      // Act: Call the repository method.
+      final result = await repository.getSeriesDetail(seriesId);
+
+      // Assert: Check that the result is a Left containing a ConnectionFailure.
+      expect(
+          result, Left(ConnectionFailure('Failed to connect to the network')));
+      // Verify that getTvDetail was called with the correct seriesId.
+      verify(remoteDataSource.getTvDetail(seriesId));
+      // Verify that no other method of the mock was called.
+      verifyNoMoreInteractions(remoteDataSource);
+    });
+  });
 
   group('Popular Series', () {
     test(

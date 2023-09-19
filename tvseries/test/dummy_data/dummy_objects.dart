@@ -1,8 +1,10 @@
+import 'package:core/data/models/genre_model.dart';
 import 'package:core/domain/genre.dart';
 import 'package:movies/data/models/movie_table.dart';
 
 import 'package:movies/domain/entities/movie.dart';
 import 'package:movies/domain/entities/movie_detail.dart';
+import 'package:tvseries/data/models/series_detail_model.dart';
 import 'package:tvseries/data/models/series_table.dart';
 import 'package:tvseries/domain/entities/series.dart';
 import 'package:tvseries/domain/entities/series_detail.dart';
@@ -57,6 +59,22 @@ const testMovieTable = MovieTable(
   posterPath: 'posterPath',
   overview: 'overview',
 );
+
+const testSeriesDetailResponse = SeriesDetailResponse(
+    backdropPath: 'backdropPath',
+    genres: [GenreModel(id: 1, name: 'Action')],
+    id: 1,
+    popularity: 12,
+    originalName: 'originalName',
+    overview: 'overview',
+    posterPath: 'posterPath',
+    name: 'name',
+    voteAverage: 13,
+    voteCount: 12,
+    homepage: 'homePage',
+    originalLanguage: 'bahasa',
+    status: 'online',
+    tagline: 'lupa');
 
 const testSeriesTable = SeriesTable(
   id: 1,

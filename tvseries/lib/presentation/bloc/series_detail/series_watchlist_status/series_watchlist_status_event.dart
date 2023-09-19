@@ -10,11 +10,6 @@ class OnLoadWatchlistStatus extends SeriesWatchlistStatusEvent {
   const OnLoadWatchlistStatus(this.id);
 }
 
-class OnNotifierTest extends SeriesWatchlistStatusEvent {
-  final String test;
-  const OnNotifierTest(this.test);
-}
-
 class OnSaveWatchlist extends SeriesWatchlistStatusEvent {
   final SeriesDetail series;
   const OnSaveWatchlist(this.series);

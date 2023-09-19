@@ -1,4 +1,5 @@
 import 'package:bloc_test/bloc_test.dart';
+import 'package:core/necessary_utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:ditonton/domain/usecase/get_watchlist_movies.dart';
 import 'package:ditonton/domain/usecase/get_watchlist_series.dart';
@@ -86,6 +87,17 @@ void main() {
       expect: () =>
           {WatchlistState(listOfMovies: tMovieList, listOfSeries: [])},
     );
+
+    blocTest<WatchlistBloc, WatchlistState>(
+      'should return state of watchlist movies empty when usecase is un-successfully gotten',
+      build: () {
+        when(usecaseMovies.execute()).thenAnswer((realInvocation) async =>
+            Left(DatabaseFailure('Database Failure')));
+        return bloc;
+      },
+      act: (bloc) => bloc.add(OnLoadMovies()),
+      expect: () => {WatchlistState(listOfMovies: [], listOfSeries: [])},
+    );
   });
 
   group('Get Series', () {
@@ -110,6 +122,17 @@ void main() {
       act: (bloc) => bloc.add(OnLoadSeries()),
       expect: () =>
           {WatchlistState(listOfMovies: [], listOfSeries: tSeriesList)},
+    );
+
+    blocTest<WatchlistBloc, WatchlistState>(
+      'should return state of watchlist series empty when usecase is un-successfully gotten',
+      build: () {
+        when(usecaseSeries.execute()).thenAnswer((realInvocation) async =>
+            Left(DatabaseFailure('Database Failure')));
+        return bloc;
+      },
+      act: (bloc) => bloc.add(OnLoadSeries()),
+      expect: () => {WatchlistState(listOfMovies: [], listOfSeries: [])},
     );
   });
 }
