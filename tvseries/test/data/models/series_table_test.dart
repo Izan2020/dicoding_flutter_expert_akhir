@@ -88,7 +88,7 @@ void main() {
 
     test('props should return a list of properties', () {
       // Create a SeriesTable instance for testing
-      final seriesTable = const SeriesTable(
+      const seriesTable = SeriesTable(
         id: 1,
         name: 'Test Series',
         posterPath: 'poster.jpg',

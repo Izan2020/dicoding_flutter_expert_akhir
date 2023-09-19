@@ -90,7 +90,7 @@ void main() {
       final result = await repository.getSeriesDetail(seriesId);
 
       // Assert: Check that the result is a Left containing a ServerFailure.
-      expect(result, Left(ServerFailure('')));
+      expect(result, const Left(ServerFailure('')));
       // Verify that getTvDetail was called with the correct seriesId.
       verify(remoteDataSource.getTvDetail(seriesId));
       // Verify that no other method of the mock was called.
@@ -102,14 +102,14 @@ void main() {
         () async {
       // Arrange: Simulate a SocketException when calling getTvDetail on the mock.
       when(remoteDataSource.getTvDetail(seriesId))
-          .thenThrow(SocketException(''));
+          .thenThrow(const SocketException(''));
 
       // Act: Call the repository method.
       final result = await repository.getSeriesDetail(seriesId);
 
       // Assert: Check that the result is a Left containing a ConnectionFailure.
       expect(
-          result, Left(ConnectionFailure('Failed to connect to the network')));
+          result, const Left(ConnectionFailure('Failed to connect to the network')));
       // Verify that getTvDetail was called with the correct seriesId.
       verify(remoteDataSource.getTvDetail(seriesId));
       // Verify that no other method of the mock was called.

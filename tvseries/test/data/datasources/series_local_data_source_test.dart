@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:core/utils/exception.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';

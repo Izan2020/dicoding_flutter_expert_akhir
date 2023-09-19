@@ -4,9 +4,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/mockito.dart';
 import 'package:tvseries/data/datasource/series_remote_data_source.dart';
-import 'package:tvseries/data/models/series_detail_model.dart';
-import 'package:tvseries/data/models/series_response.dart';
-import 'package:tvseries/domain/entities/series.dart';
 import 'package:tvseries/tvseries.dart';
 
 import '../helper/helper_test.mocks.dart';
@@ -76,7 +73,7 @@ void main() {
     group('getTvDetail', () {
       test('should return a SeriesDetailResponse', () async {
         // Arrange
-        final id = 1;
+        const id = 1;
         when(mockClient.get(Uri.parse(
                 'https://api.themoviedb.org/3/tv/$id?api_key=2174d146bb9c0eab47529b2e77d6b526')))
             .thenAnswer((_) async =>

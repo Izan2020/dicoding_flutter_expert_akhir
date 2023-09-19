@@ -90,7 +90,7 @@ void main() {
 
     test('props should return a list of properties', () {
       // Create a SeriesDetailResponse instance for testing
-      final seriesDetailResponse = SeriesDetailResponse(
+      const seriesDetailResponse = SeriesDetailResponse(
         backdropPath: "backdrop.jpg",
         genres: [
           GenreModel(id: 1, name: "Action"),

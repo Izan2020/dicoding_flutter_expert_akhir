@@ -58,7 +58,7 @@ void main() {
 
     test('should convert MovieTable to JSON', () {
       // Arrange
-      final movieTable = MovieTable(
+      const movieTable = MovieTable(
         id: 3,
         title: 'JSON Movie',
         posterPath: 'json_poster.jpg',
@@ -78,7 +78,7 @@ void main() {
 
     test('should convert MovieTable to Movie entity', () {
       // Arrange
-      final movieTable = MovieTable(
+      const movieTable = MovieTable(
         id: 4,
         title: 'Entity Movie',
         posterPath: 'entity_poster.jpg',
@@ -98,13 +98,13 @@ void main() {
 
     test('should have the correct props', () {
       // Arrange
-      final movieTable1 = MovieTable(
+      const movieTable1 = MovieTable(
         id: 5,
         title: 'Movie 1',
         posterPath: 'poster1.jpg',
         overview: 'Overview 1',
       );
-      final movieTable2 = MovieTable(
+      const movieTable2 = MovieTable(
         id: 5,
         title: 'Movie 2',
         posterPath: 'poster2.jpg',
